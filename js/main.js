@@ -121,19 +121,30 @@ chạy vòng lặp trong so sánh index nếu là số dương nhỏ nhất sẽ
 output: số dương nhỏ nhất
  */
 function NumOn() {
-    var countNumber = [];
     
+    var countNumber = [];
+    var comparNum = 0;
+
     for (var i = 0; i < arrayName.length; i++) {
+        
         if (arrayName[i] >= 0) {
-            countNumber = arrayName[i]; 
-        }
-        for(var k = 0; k < arrayName.length; k++) {
-            if (countNumber > arrayName[k]) {
-                countNumber = arrayName[k];
-            }
+            countNumber += arrayName[i]; 
         }
     }
-    getId('onNumber').innerHTML = countNumber;
+    if (countNumber.length > 0) {
+        for (var k = 0; k < countNumber.length; k++) {
+            
+            comparNum = countNumber[k];
+            
+            if (countNumber[k] < countNumber[k + 1]) {
+                comparNum = countNumber[k + 1];
+            }
+        }
+    }else {
+        comparNum = 'Không có số dương trong mảng';
+    }
+
+    getId('onNumber').innerHTML = comparNum;
 }
 
 
