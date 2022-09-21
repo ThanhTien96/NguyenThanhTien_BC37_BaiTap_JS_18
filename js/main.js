@@ -32,15 +32,15 @@ function tabOpen(e) {
  process: mỗi lần người dùng nhập 1 input lấy số đó push vô mảng output và render ra giao diện
   output: push số đó vô mảng
  */
-  var arrayName = [];
+var arrayName = [];
 
 function addValue() {
     var userType = +getId('num1').value;
-    
-    arrayName.push(userType );
+
+    arrayName.push(userType);
     var renderNum = getId('tagNumber');
     renderNum.innerHTML = arrayName;
-    
+
 }
 
 
@@ -57,7 +57,7 @@ function addValue() {
 
 function calcNum() {
     // input : var arrayName Global scope
-    
+
     // ouput: sum = 0;
     var sum = 0;
     // prcess:
@@ -79,7 +79,7 @@ process: var count = 0; mỗi lần kiểm tra ra số đó nếu là số dươ
  output: đếm số dương
  */
 
- function countNum() {
+function countNum() {
     var count = 0;
     for (var i = 0; i < arrayName.length; i++) {
         if (arrayName[i] >= 0) {
@@ -87,21 +87,21 @@ process: var count = 0; mỗi lần kiểm tra ra số đó nếu là số dươ
         }
     }
     getId('tagCountNum').innerHTML = 'Số Dương: ' + count;
- }
+}
 
 
- // bài 3: tìm số nhỏ nhất
- /**
-    input: nguoi dùng nhập vô 1 array
+// bài 3: tìm số nhỏ nhất
+/**
+   input: nguoi dùng nhập vô 1 array
 
-    process: var smallestNum = array[0] chạy vòng lặp for so sánh smallestNum vs các số trong array
+   process: var smallestNum = array[0] chạy vòng lặp for so sánh smallestNum vs các số trong array
 
-    ouput: số nhỏ nhất
-  */
+   ouput: số nhỏ nhất
+ */
 
 function smallNum() {
     var smallestNum = arrayName[0];
-    for (var i = 0; i < arrayName.length; i++) {
+    for (var i = 1; i < arrayName.length; i++) {
         if (smallestNum > arrayName[i]) {
             smallestNum = arrayName[i];
         }
@@ -114,33 +114,35 @@ function smallNum() {
 input: cho người dùng nhập vô 1 array
 
 process: 
-tạo 1 biến tạm để chứa index dương của mảng
-chạy vòng lặp ngoài kiểm tra số dương
-chạy vòng lặp trong so sánh index nếu là số dương nhỏ nhất sẽ gán giá trị index vô biến output
+tạo 1 mang mới chứa số dương
+chạy vòng lặp kiểm tra số dương và gắn số dương vào mảng mới
+chạy vòng lặp so sánh index nếu là số dương nhỏ nhất sẽ gán giá trị index vô biến output
+nếu mảng không có số nào thì thông báo không có số dương trong mảng
 
 output: số dương nhỏ nhất
  */
 function NumOn() {
-    
+
     var countNumber = [];
     var comparNum = 0;
 
     for (var i = 0; i < arrayName.length; i++) {
-        
-        if (arrayName[i] >= 0) {
-            countNumber += arrayName[i]; 
+
+        if (arrayName[i] > 0) {
+            countNumber += arrayName[i];
         }
     }
+
     if (countNumber.length > 0) {
-        for (var k = 0; k < countNumber.length; k++) {
-            
-            comparNum = countNumber[k];
-            
-            if (countNumber[k] < countNumber[k + 1]) {
-                comparNum = countNumber[k + 1];
+        comparNum = countNumber[0]
+        for (var k = 1; k < countNumber.length; k++) {
+
+            if (comparNum > countNumber[k]) {
+                comparNum = countNumber[k];
             }
         }
-    }else {
+
+    } else {
         comparNum = 'Không có số dương trong mảng';
     }
 
@@ -158,13 +160,17 @@ output: in ra số chẵn cuối cùng của mảng
  */
 
 function evenNum() {
-    var evenNum = [];
-    
+    var evenNum = 0;
+
     var i = 0;
-    while(i < arrayName.length) {
+    while (i < arrayName.length) {
+
         if (arrayName[i] % 2 === 0) {
-            evenNum = arrayName[i]
+            evenNum = arrayName[i];
+        }else {
+            evenNum = 'Trong Mảng Không Có Số chẵn';
         }
+
         i++
     }
     getId('evenNumber').innerHTML = evenNum;
@@ -189,7 +195,7 @@ function changePosition() {
     var index2 = parseFloat(getId('index2').value)
 
     var newIndex1 = arrayName[index1 - 1];
-    var newIndex2 = arrayName[index2 -1];
+    var newIndex2 = arrayName[index2 - 1];
     arrayName.splice(index1 - 1, 1, newIndex2);
     arrayName.splice(index2 - 1, 1, newIndex1);
     getId('changePosition').innerHTML = arrayName;
@@ -208,8 +214,8 @@ function sort() {
 
     for (var k = arrayName.length - 1; k >= 0; k--) {
         for (var i = 0; i < k; i++) {
-            
-            if (arrayName[i] > arrayName[i + 1]){
+
+            if (arrayName[i] > arrayName[i + 1]) {
                 var temp = arrayName[i];
                 arrayName[i] = arrayName[i + 1];
                 arrayName[i + 1] = temp;
@@ -234,23 +240,23 @@ function sort() {
  */
 function primeNum() {
     var primeNumber = 0;
-    
-   for (var i = 0; i < arrayName.length; i++) {
-    var traSNT = true;    
-    for (var h = 2; h < Math.sqrt(arrayName[i]); h++) {
-        if (arrayName[i] % h === 0) {
-            traSNT = false;
-            break;
-        }
-    } 
-    if (traSNT) {
-        primeNumber = arrayName[i];
-        break;
-    }else {
-        primeNumber = -1;
-    }
 
-   }
+    for (var i = 0; i < arrayName.length; i++) {
+        var traSNT = true;
+        for (var h = 2; h < Math.sqrt(arrayName[i]); h++) {
+            if (arrayName[i] % h === 0) {
+                traSNT = false;
+                break;
+            }
+        }
+        if (traSNT) {
+            primeNumber = arrayName[i];
+            break;
+        } else {
+            primeNumber = -1;
+        }
+
+    }
     getId('resultPrimeNum').innerHTML = 'số nguyên tố đầu tiên là: ' + primeNumber;
 }
 // bài 9: Đếm số nguyên
@@ -265,13 +271,13 @@ output: đếm số nguyên
  */
 var arrayInteger = [];
 function addInteger() {
-    
+
     var integerNum = +getId('integer').value;
-    
+
     arrayInteger.push(integerNum);
     var iNum = getId('arrayInteger');
     iNum.innerHTML = arrayInteger;
-    
+
 }
 
 function integerNum() {
@@ -306,18 +312,18 @@ function compar() {
     for (var hi = 0; hi < arrayName.length; hi++) {
         if (arrayName[hi] >= 0) {
             positive += 1;
-        }else {
+        } else {
             negative += 1;
         }
     }
     if (positive > negative) {
         resultCompar = 'Số Dương > Số Âm';
-    }else if (positive < negative) {
+    } else if (positive < negative) {
         resultCompar = 'Số Dương < Số Âm';
-    }else{
+    } else {
         resultCompar = 'Số Dương = Số Âm';
     }
-    
+
     getId('ComparResult').innerHTML = resultCompar;
 }
 
