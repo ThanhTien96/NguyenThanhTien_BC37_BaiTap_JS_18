@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/icons8-react-native-48.png" type="image/png">
+  <title>Demo JS</title>
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <div class="container bg__tab">
+    <div class="background">
+  
+      <div class="tab-content">
+  
+        <div class="tab-item">
+          <h3>Cho người dùng nhập vào số nguyên và lưu trữ trong mảng.
+            Thiết kế layout cho người dùng chọn thực hiện các chức năng bên dưới: </h3>
+          <div class="tab__detail detail__b2">
+            <input id="num1" type="number" placeholder="nhập 1 số x">
+          </div>
+          <button onclick="addValue()" id="btnAddNumber">Thêm số</button>
+          <p id="tagNumber" class="tab-result"></p>
+        </div>  
+      </div>
+      
+      <div id="controlTab" class="tab__todo">
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>1</span> Tính Tổng Số Dương</p>
+            <i id="iChange1" data-Tab="tab1" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+           </div>
+          <div id="tab1" class="item__bottom">
+            <button onclick="calcNum()">Tính Tổng</button>
+            <p id="calcAll" class="item-result">tổng số dương</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>2</span> Đếm Số Dương</p>
+            <i id="iChange2" data-Tab="tab2" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab2" class="item__bottom">
+            <button onclick="countNum()">Đếm Số</button>
+            <p id="tagCountNum" class="item-result">Đếm Số Dương</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>3</span> Tìm Số Nhỏ Nhất</p>
+            <i id="iChange3" data-Tab="tab3" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab3" class="item__bottom">
+            <button onclick="smallNum()">Tìm Số</button>
+            <p id="smallNum" class="item-result">Tìm Số Nhỏ Nhất</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>4</span> Tìm Số Dương Nhỏ Nhất</p>
+            <i id="iChange4" data-Tab="tab4" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab4" class="item__bottom">
+            <button onclick="NumOn()">Tìm Số</button>
+            <p id="onNumber" class="item-result">Tìm Số Dương Nhỏ Nhất</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>5</span> Tìm Số Chẵn Cuối Cùng</p>
+            <i id="iChange5" data-Tab="tab5" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab5" class="item__bottom">
+            <button onclick="evenNum()">Tìm Số</button>
+            <p id="evenNumber" class="item-result">Số Chẵn Cuối Cùng</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>6</span> Đổi Chỗ</p>
+            <i id="iChange6" data-Tab="tab6" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab6" class="item__bottom">
+            <div class="change__input">
+              <input id="index1" type="number" placeholder="nhập 1 số x">
+              <input id="index2" type="number" placeholder="nhập 1 số x">
+            </div>
+            <button onclick="changePosition()">Đổi Chỗ</button>
+            <p id="changePosition" class="item-result">Đổi Chỗ</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>7</span> Sắp Xếp Tăng Dần</p>
+            <i id="iChange7" data-Tab="tab7" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab7" class="item__bottom">
+            <button onclick="sort()">Sắp Xếp</button>
+            <p id="sortResult" class="item-result">Sắp Xếp</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>8</span> Tìm Số Nguyên Tố Đầu Tiên</p>
+            <i id="iChange8" data-Tab="tab8" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab8" class="item__bottom">
+            <button onclick="primeNum()">Tìm Số Nguyên Tố</button>
+            <p id="resultPrimeNum" class="item-result">Số Nguyên Tố Đầu Tiên</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>9</span> Đếm Số Nguyên</p>
+            <i id="iChange9" data-Tab="tab9" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab9" class="item__bottom">
+            <div class="change__input">
+              <input id="integer" type="number" placeholder="nhập 1 số x">
+              <button onclick="addInteger()" >Thêm Số</button>
+              <p id="arrayInteger" class="tab-result"></p>
+              
+            </div>
+            
+            <button onclick="integerNum()">Đếm Số Nguyên</button>
+            <p id="intergerResult" class="item-result">Số Nguyên</p>
+          </div>
+        </div>
+
+        <div class="todo__item">
+          <div class="item__top">
+            <p><span>10</span> So Sánh Số Lượng Số Âm Và Số Dương</p>
+            <i id="iChange10" data-Tab="tab10" onclick="tabOpen(event)" class="fa fa-angle-down"></i>
+          </div>
+          <div id="tab10" class="item__bottom">
+            <button onclick="compar()">So Sánh</button>
+            <p id="ComparResult" class="item-result">So Sánh</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- MAIN JS -->
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

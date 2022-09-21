@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+
+}
+body{
+    
+    background: url(../img/bacgrond_1.jpg);
+    background-size: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+
+}
+
+.container{
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 12px 0px #979393cc;
+}
+.background{
+    padding: 40px;
+}
+
+
+.tab-content, .item__bottom{
+    text-align: center;
+}
+
+.tab-item.show{
+    display: block;
+}
+.tab__detail input, .change__input input{
+    padding: 10px 15px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #eee;
+    margin: 50px 30px 0 0;
+    transition: all .5s;
+}
+.tab__detail input:focus{
+    border-bottom: 1px solid #e0c04d;
+}
+button{
+    margin: 30px 0;
+    padding: 10px 25px;
+    font-size: 20px;
+    background-image: linear-gradient(-135deg, #884747, #e0c04d, #884747, #e0c04d);
+    border: none;
+    border-radius: 30px;
+    transition: all .5s;
+    background-size: 300%;
+    color: white;
+    font-weight: 300;
+    cursor: pointer;
+}
+button:hover{
+    background-position: right center;
+}
+.tab-result{
+    background-color: rgba(153, 222, 219, 0.618);
+    padding: 15px;
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid rgb(136, 202, 207);
+    border-radius: 5px;
+    text-align: left;
+    display: block;
+}
+.tab-item h3{
+    margin-bottom: 20px;
+}
+.detail__b2 input{
+    width: 50%;
+}
+.tab__todo{
+    margin: 40px;
+}
+.item-result{
+    background-color: rgba(153, 222, 219, 0.618);
+    padding: 15px;
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid rgb(136, 202, 207);
+    border-radius: 5px;
+    text-align: left;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.todo__item{
+    border: 1px solid #eee;
+}
+.item__top{
+    /* background-color: rgb(162, 213, 221); */
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.item__top p span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: blue;
+    border: 1px solid black;
+    margin-right: 10px;
+    color: white;
+    
+}
+.todo__item .item__top i{
+    cursor: pointer;
+    font-size: 24px;
+    transition: all .2s;
+}
+.todo__item .item__top i:hover{
+    color: rgb(253, 160, 247);
+}
+.todo__item{
+    overflow: hidden;
+}
+.item__bottom{
+    display: none;
+    top: 0;
+    transition: all .9s;
+}
+
+
